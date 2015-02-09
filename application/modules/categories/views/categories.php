@@ -37,13 +37,13 @@
                 </div>
             </div>
         </div>
-    <div class="col-lg-9 animated fadeInRight">
-        <div class="row">
-            <div class="col-lg-12">
-                <?php echo $category_grid;?>
+        <div class="col-lg-9 animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <?php echo $category_grid;?>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </div>
 

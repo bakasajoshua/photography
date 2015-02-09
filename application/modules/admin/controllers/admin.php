@@ -59,6 +59,12 @@ class admin extends MY_Controller
 		return $categories_dropdown;
 	}
 
+	public function pick()
+	{
+		$data['content_page'] = 'admin/gallery';
+		$this->template->call_admin_template($data);
+	}
+
 	
 }
 

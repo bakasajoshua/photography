@@ -107,6 +107,7 @@ class Upload extends MY_Controller
 			$upload_data = $this->upload->data();
 			$message['type'] = "success";
 			$message['path'] = base_url() . $upload_path .'/'.$upload_data['file_name'];
+			$message['full_path'] = $upload_data['full_path'];
 		}
 
 		return $message;
@@ -118,6 +119,42 @@ class Upload extends MY_Controller
 
 		$image_dimensions = array('width' => $width, 'height' => $height, 'dimensions' => $width . 'x' . $height);
 		return $image_dimensions;
+	}
+
+	function createThumbs($imagePath, $thumPath, $thumbWidth)
+	{
+		//open the directory
+		$dir = opendir($imagePath);
+		echo $dir;die;
+		//loop through it, looking for any/all JPG files:
+		while (false != ($fname = readdir($dir))) {
+			//parse path for the extension
+			$info = pathinfo($imagePath . $fname);
+			//continue only if this is a JPEG image
+			if (strtolower($info['extension'] == 'jpg')) {
+				echo "Creating thumbnail for {$fname} <br/>";
+				//load image and get image size
+				$img = imagecreatefromjpeg("{$imagePath}{$fname}");
+				$width = imagesx($img);
+				$height = imagesx($img);
+
+				//calculate the thumbail size
+				$new_width = $thumbWidth;
+				$new_height = floor($height * ($thumbWidth / $width));
+
+				//create a temporary image
+				$tmp_img = imagecreatetruecolor($new_width, $new_height);
+
+				//copy and resize old image into new image
+				imagecopyresized($tmp_img, $img, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+
+				//save thumbnail into a file
+				imagejpeg($tmp_img, "{$imagePath}{$fname}");
+			}
+		}
+
+		//close the directory
+		closedir($dir);
 	}
 
 	function get_display_div($type)
@@ -199,5 +236,21 @@ class Upload extends MY_Controller
 		}
 
 		echo json_encode($response);
+	}
+
+	function test()
+	{
+		$this->load->view('upload/test');
+	}
+
+	function test_upload()
+	{
+		$upload = $this->uploadanimage('test_data', 'image_uploads/test');
+
+		if ($upload['type'] == 'success') {
+			$this->createThumbs($upload['full_path'], base_url() . '/image_uploads/test/thumb', 100);
+		}
+
+		echo "<pre>";print_r($upload);die;
 	}
 }

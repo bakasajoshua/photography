@@ -140,28 +140,28 @@
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
                 <div class="col-lg-3 bi">
-                    <a href = "">
+                    <a href = "<?php echo base_url(); ?>admin/pick">
                         <div class = "button-image animated" style = "background-image: url('<?php echo base_url(); ?>assets/images/pickoftheday.jpg')">
                             <div class = "floater"><center><h2>Picture of the day</h2></center></div>
                         </div>
                     </a>
                 </div>
                 <div class="col-lg-3 bi">
-                     <a href = "">
+                     <a href = "<?php echo base_url(); ?>admin/edithome">
                         <div class = "button-image animated" style = "background-image: url('<?php echo base_url(); ?>assets/images/frontpage.jpg')">
                             <div class = "floater"><center><h2>Home page Images</h2></center></div>
                         </div>
                     </a>
                 </div>
                 <div class="col-lg-3 bi">
-                     <a href = "">
+                     <a href = "<?php echo base_url(); ?>events/">
                         <div class = "button-image animated" style = "background-image: url('<?php echo base_url(); ?>assets/images/events.jpeg')">
                             <div class = "floater"><center><h2>Events</h2></center></div>
                         </div>
                     </a>
                 </div>
                 <div class="col-lg-3 bi">
-                     <a href = "">
+                     <a href = "<?php echo base_url(); ?>categories/">
                         <div class = "button-image animated" style = "background-image: url('<?php echo base_url(); ?>assets/images/fun.jpg')">
                             <div class = "floater"><center><h2>Fun Stuff</h2></center></div>
                         </div>
