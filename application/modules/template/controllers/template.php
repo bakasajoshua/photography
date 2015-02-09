@@ -12,7 +12,8 @@ class Template extends MY_Controller
 
 	function call_admin_template($data = NULL)
 	{
-		$data['user_details'] = $this->user_details[0];
+		$data['user_details'] = $this->get_details();
+		// echo "<pre>";print_r($data);die();
 		$this->load->view('admin_template', $data);
 	}
 
