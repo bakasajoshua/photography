@@ -139,11 +139,11 @@
 
 	function get_model_images()
 	{
-		$.get('<?php echo base_url(); ?>models/ajax_model_images/' + '<?php echo $model_details["model_id"]; ?>', function(data){
-			obj = jQuery.parseJSON(data);
-			$('#model-carousel').append(obj.pictures_section);
-			$('#all-pictures').append(obj.all_pictures);
-			$('.upload_caller').attr('id', 'upload_request');
-		});
+		// $.get('<?php echo base_url(); ?>models/ajax_model_images/' + '<?php echo $model_details["model_id"]; ?>', function(data){
+		// 	obj = jQuery.parseJSON(data);
+		// 	$('#model-carousel').append(obj.pictures_section);
+		// 	$('#all-pictures').append(obj.all_pictures);
+		// 	$('.upload_caller').attr('id', 'upload_request');
+		// });
 	}
 </script>

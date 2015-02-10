@@ -35,7 +35,7 @@
                 <div class="col-md-8" id = "pictures_section">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5><?php echo ucwords(strtolower($eve_details[0]['first_name'])); ?>'s Photos</h5>
+                            <h5><?php echo ucwords(strtolower($eve_details[0]['event_name'])); ?>'s Photos</h5>
                             <div class="ibox-tools">
                                 <a class="collapse-link">
                                     <i class="fa fa-chevron-up"></i>
@@ -126,7 +126,7 @@
                 $('.modal-title').text(obj.heading);
                 $('#modal_form').html(jQuery.parseHTML(obj.theform));
                 $('#modal_form').attr('action', obj.form_action);
-                $('#a_button').text('Update Model Profile');
+                $('#a_button').text('Update Event Profile');
             });
             $('#myModal4').modal('show');
         });

@@ -190,6 +190,7 @@ class Models extends MY_Controller
 
 		$data['model_details'] = $models[$model_id];
 		$data['content_page'] = 'models/model_profile';
+		
 		$this->template->call_admin_template($data);
 
 	}
